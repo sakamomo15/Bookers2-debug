@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   devise_for :users # 最初に記載
 
-  root :to => "homes#top"
+  root to: "homes#top"
   get "home/about" => "homes#about"
+  get "/search", to: "searches#search"
 
   resources :books, only: [:index,:show,:edit,:create,:destroy,:update] do
     resource :favorite, only: [:create, :destroy]
